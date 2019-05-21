@@ -1,0 +1,65 @@
+package ex02;
+
+import javax.swing.JOptionPane;
+
+public class Principal {
+
+	public static void main(String[] args) {
+
+		String nome = "";
+		int altura = 0;
+		int idade = 0;
+		int peso = 0;
+		int total = 0;
+		int tempAltura = 0, tempIdade = 0, tempPeso = 0;
+		String tempNome = "";
+		boolean valida = false, alt = false, pes = false, ida = false;
+		String[] x = {"Continuar","Concluir"};
+		
+		do {
+			nome = JOptionPane.showInputDialog("Digite seu nome: ");
+			altura = Integer.parseInt(JOptionPane.showInputDialog("Digite sua altura: "));
+			idade = Integer.parseInt(JOptionPane.showInputDialog("Digite sua idade: "));
+			peso = Integer.parseInt(JOptionPane.showInputDialog("Digite seu peso: "));
+			
+			if(altura > tempAltura) {
+				tempAltura = altura;
+				tempNome = nome;
+			}else if(altura == tempAltura) {
+				alt = true;
+			}
+
+			if(idade > tempIdade) {
+				tempIdade = idade;
+				tempNome = nome;
+			}else if(idade == tempIdade) {
+				ida = true;
+			}
+			
+			if(peso > tempPeso) {
+				tempPeso = peso;
+				tempNome = nome;
+			}else if(peso == tempPeso) {
+				pes = true;
+			}
+			
+			total++;
+			int v0 = JOptionPane.showOptionDialog(null,"Escolha uma opчуo: ","",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,x,null);
+			
+			if(v0 == 0 || total >= 10) valida = false;
+			else valida = true;
+		}while(valida == false);
+		
+		JOptionPane.showMessageDialog(null, "a)\nA quantidade de pessoa cadastradas щ: "+total);
+		
+		if(alt == false) JOptionPane.showMessageDialog(null, "b)\nO jogador mais alto щ "+tempNome+" e sua altura щ "+tempAltura);
+		if(ida == false) JOptionPane.showMessageDialog(null, "c)\nO jogador mais velho щ "+tempNome+" e sua idade щ "+tempIdade);
+		if(pes == false) JOptionPane.showMessageDialog(null, "d)\nO jogador mais pesado щ "+tempNome+" e seu peso щ "+tempPeso);
+		if(alt == true) JOptionPane.showMessageDialog(null, "b)\nOs jogadores tem a mesma altura.");
+		if(pes == true) JOptionPane.showMessageDialog(null, "c)\nOs jogadores tem a mesma idade");
+		if(ida == true) JOptionPane.showMessageDialog(null, "d)\nOs jogadores tem o mesmo peso");
+	}
+
+}
+	
+

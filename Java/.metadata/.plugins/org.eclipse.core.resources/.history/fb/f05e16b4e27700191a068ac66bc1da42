@@ -1,0 +1,17 @@
+package acao;
+
+import java.text.DecimalFormat;
+
+import javax.swing.table.DefaultTableModel;
+
+@SuppressWarnings("unused")
+public class Acao {
+
+	int quantidadeTotal;
+
+	public void cadastrar(int p) {
+		quantidadeTotal += p;
+	}
+	
+
+}

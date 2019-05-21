@@ -1,0 +1,41 @@
+package ex02;
+
+import javax.swing.JOptionPane;
+
+public class Principal {
+
+	public static void main(String[] args) {
+
+		String nome = "";
+		int altura = 0;
+		int idade = 0;
+		int peso = 0;
+		int total = 0;
+		int temp = 0;
+		boolean valida = false;
+		String[] x = {"Continuar","Concluir"};
+		
+		do {
+			nome = JOptionPane.showInputDialog("Digite seu nome: ");
+			altura = Integer.parseInt(JOptionPane.showInputDialog("Digite sua altura: "));
+			idade = Integer.parseInt(JOptionPane.showInputDialog("Digite sua idade: "));
+			peso = Integer.parseInt(JOptionPane.showInputDialog("Digite seu peso: "));
+			
+			if(altura > temp) temp = altura;
+				
+			total++;
+			int v0 = JOptionPane.showOptionDialog(null,"Escolha uma opção: ","",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,x,null);
+			
+			if(v0 == 0 || total >= 10) valida = false;
+			else valida = true;
+		}while(valida == false);
+		
+		JOptionPane.showMessageDialog(null, "a)\nA quantidade de pessoa cadastradas é: "+total+" "+temp);
+
+		
+		
+	}
+
+}
+	
+

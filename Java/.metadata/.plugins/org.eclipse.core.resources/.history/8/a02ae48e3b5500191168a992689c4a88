@@ -1,0 +1,19 @@
+package exemplo03;
+
+public class Principal {
+
+	public static void main(String[] args) {
+
+		//Variável
+		int numero1 = 5, numero2 = 5;
+				
+		//Operadores relacionais
+		System.out.println(numero1 > numero2);
+		System.out.println(numero1 < numero2);
+		System.out.println(numero1 >= numero2);
+		System.out.println(numero1 <= numero2);
+		
+		
+	}
+
+}

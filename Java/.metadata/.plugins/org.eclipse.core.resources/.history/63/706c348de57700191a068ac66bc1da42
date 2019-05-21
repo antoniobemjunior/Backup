@@ -1,0 +1,14 @@
+package formulario;
+
+import javax.swing.JFrame;
+
+@SuppressWarnings("serial")
+public class Quantidade extends JFrame {
+
+	public Quantidade() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(500,0,590, 625);
+		setResizable(false);
+		setLocationRelativeTo(null);
+	}
+}

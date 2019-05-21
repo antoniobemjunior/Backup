@@ -1,0 +1,250 @@
+package formularios;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+
+import acao.AcaoJogo;
+import beans.Jogo;
+
+import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JCheckBox;
+import javax.swing.JSpinner;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
+
+@SuppressWarnings("serial")
+public class Formulario extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField txtNome;
+	private JTextField txtSalarioBruto;
+	private JTextField txtValeTransporte;
+	private JTable tabelaJogos;
+	private static int linha = 0;
+	private AcaoJogo a = new AcaoJogo();
+	private JPanel panel = new JPanel();
+	private JLabel lblNome = new JLabel("Colaborador");
+	private JLabel lblSalarioBruto = new JLabel("Sal\u00E1rio Bruto");
+	private JLabel lblValeTransporte = new JLabel("Vale Transporte");
+	private JButton btnNewButton = new JButton("Cadastrar");
+	private Jogo j = new Jogo();
+	private JButton btnEstatisticas = new JButton("Estatisticas");
+	private String nomePlataforma = "";
+	private JTextField txtImposto;
+	private JTextField txtSalarioLiquido;
+	private JCheckBox chckbxPlano;
+	private double SalarioBruto = 0; 
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Formulario frame = new Formulario();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	public Formulario() {
+
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 593, 625);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		panel.setBorder(new LineBorder(Color.LIGHT_GRAY));
+		panel.setBounds(10, 11, 557, 214);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		lblNome.setBounds(10, 26, 81, 14);
+		panel.add(lblNome);
+		
+		txtNome = new JTextField();
+		txtNome.setBounds(119, 22, 147, 20);
+		panel.add(txtNome);
+		txtNome.setColumns(10);
+		
+		lblSalarioBruto.setBounds(11, 58, 81, 14);
+		panel.add(lblSalarioBruto);
+		
+		txtSalarioBruto = new JTextField();
+		txtSalarioBruto.setColumns(10);
+		txtSalarioBruto.setBounds(119, 54, 147, 20);
+		panel.add(txtSalarioBruto);
+		
+		lblValeTransporte.setBounds(11, 89, 109, 14);
+		panel.add(lblValeTransporte);
+		
+		txtValeTransporte = new JTextField();
+		txtValeTransporte.setColumns(10);
+		txtValeTransporte.setBounds(150, 85, 116, 20);
+		panel.add(txtValeTransporte);
+		
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				//Instânciar obj
+				j = new Jogo();
+				j.setNome(txtNome.getText());
+				j.setPlataforma(txtSalarioBruto.getText());
+				j.setValor(Double.parseDouble(txtValeTransporte.getText()));
+				
+				//Realizar cadastro
+				a.cadastrarJogo(j);
+				
+				//Atualizar
+				tabelaJogos.setModel(a.selecionarJogos());
+				
+				//Limpar campos
+				txtNome.setText("");
+				txtSalarioBruto.setText("");
+				txtValeTransporte.setText("");
+			}
+		});
+		btnNewButton.setBounds(119, 180, 104, 23);
+		panel.add(btnNewButton);
+		
+		btnEstatisticas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				//Obter o nome da plataforma atualmente
+				nomePlataforma = tabelaJogos.getValueAt(linha, 1).toString();
+				
+				//Instânciar obj
+				j = new Jogo();
+				j.setNome(txtNome.getText());
+				j.setPlataforma(txtSalarioBruto.getText());
+				j.setValor(Double.parseDouble(txtValeTransporte.getText()));
+				
+				//Realizar alteração
+				a.alterarJogo(linha, j, nomePlataforma);
+				
+				//Atualizar
+				tabelaJogos.setModel(a.selecionarJogos());
+				
+				//Limpar campos
+				txtNome.setText("");
+				txtSalarioBruto.setText("");
+				txtValeTransporte.setText("");
+			}
+		});
+		btnEstatisticas.setBounds(246, 180, 104, 23);
+		panel.add(btnEstatisticas);
+		
+		JLabel lblFalta = new JLabel("Faltas no m\u00EAs");
+		lblFalta.setBounds(10, 118, 81, 14);
+		panel.add(lblFalta);
+		
+		JSpinner spinner = new JSpinner();
+		spinner.setBounds(119, 112, 45, 20);
+		panel.add(spinner);
+		
+		JLabel lblCargo = new JLabel("Cargo");
+		lblCargo.setBounds(295, 26, 45, 14);
+		panel.add(lblCargo);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String cargo = comboBox.getSelectedItem().toString();
+				if(cargo == "Estagiário") txtSalarioBruto.setText("900");
+				if(cargo == "Desenvolvedor Jr") txtSalarioBruto.setText("1300");
+				if(cargo == "Desenvolvedor Pleno") txtSalarioBruto.setText("1800");
+				if(cargo == "Desenvolvedor Sênior") txtSalarioBruto.setText("2400");
+				if(cargo == "Analista de Sistemas Jr") txtSalarioBruto.setText("2700");
+				if(cargo == "Analista de Sistemas Pleno") txtSalarioBruto.setText("3200");
+				if(cargo == "Analista de Sistemas Sênior") txtSalarioBruto.setText("3600");
+				if(cargo == "Arquiteto de Software") txtSalarioBruto.setText("4400");
+				SalarioBruto = Integer.parseInt(txtSalarioBruto.getText());
+			}
+		});
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Estagi\u00E1rio", "Desenvolvedor Jr", "Desenvolvedor Pleno", "Desenvolvedor S\u00EAnior", "Analista de Sistemas Jr", "Analista de Sistemas Pleno", "Analista de Sistemas S\u00EAnior", "Arquiteto de Software"}));
+		comboBox.setBounds(338, 23, 209, 22);
+		panel.add(comboBox);
+		
+		JCheckBox chckbxClubeFidelidade = new JCheckBox("Clube Fidelidade");
+		chckbxClubeFidelidade.setBounds(321, 48, 195, 24);
+		panel.add(chckbxClubeFidelidade);
+		
+		chckbxPlano = new JCheckBox("Plano de Sa\u00FAde");
+		chckbxPlano.setBounds(321, 80, 195, 24);
+		panel.add(chckbxPlano);
+		
+		JLabel lblImpostoDeRenda = new JLabel("Imposto de Renda");
+		lblImpostoDeRenda.setBounds(276, 116, 114, 14);
+		panel.add(lblImpostoDeRenda);
+		
+		txtImposto = new JTextField();
+		txtImposto.setColumns(10);
+		txtImposto.setBounds(400, 115, 147, 20);
+		panel.add(txtImposto);
+		
+		JLabel lblSalarioLiquido = new JLabel("Sal\u00E1rio L\u00EDquido");
+		lblSalarioLiquido.setBounds(173, 148, 97, 14);
+		panel.add(lblSalarioLiquido);
+		
+		txtSalarioLiquido = new JTextField();
+		txtSalarioLiquido.setColumns(10);
+		txtSalarioLiquido.setBounds(264, 143, 147, 20);
+		panel.add(txtSalarioLiquido);
+		
+		JCheckBox checkBox = new JCheckBox("");
+		checkBox.setSelected(false);
+		checkBox.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(checkBox.isSelected() == true) {
+					SalarioBruto = SalarioBruto-((6/100)*SalarioBruto);
+					txtSalarioLiquido.setText(Integer.toString(SalarioBruto));
+				}
+			}
+		});
+		checkBox.setBounds(126, 82, 97, 24);
+		panel.add(checkBox);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 236, 557, 339);
+		contentPane.add(scrollPane);
+		
+		tabelaJogos = new JTable();
+		tabelaJogos.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				
+				//Obter a linha selecionada
+				linha = tabelaJogos.getSelectedRow();
+				
+				//Exibir dados nos campos
+				txtNome.setText(tabelaJogos.getValueAt(linha, 0).toString());
+				txtSalarioBruto.setText(tabelaJogos.getValueAt(linha, 1).toString());
+				txtValeTransporte.setText(tabelaJogos.getValueAt(linha, 2).toString());
+				
+			}
+		});
+		tabelaJogos.setModel(a.selecionarJogos());
+		scrollPane.setViewportView(tabelaJogos);
+		
+	}
+}

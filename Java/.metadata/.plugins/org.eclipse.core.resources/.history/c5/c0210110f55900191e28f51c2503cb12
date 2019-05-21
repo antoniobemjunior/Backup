@@ -1,0 +1,13 @@
+package exemplo05;
+
+import javax.swing.JOptionPane;
+
+public class Principal {
+
+	public static void main(String[] args) {
+
+		int i = Integer.parseInt(JOptionPane.showInputDialog("Informe uma idade: "));
+		
+	}
+
+}

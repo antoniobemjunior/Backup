@@ -1,0 +1,117 @@
+package ex33;
+
+import javax.swing.JOptionPane;
+
+public class Principal {
+
+	public static void main(String[] args) {
+
+		/*
+		 * Criar um sistema onde o usuário irá informar o dia e em seguida o mês, após informado deverá ser exibido
+		 * seu signo do zodíaco.
+		 */
+		
+		String d = "";
+		while(d.equals("") || d.charAt(0) == '-' || isInt(d) )
+		d = JOptionPane.showInputDialog("Informe o dia: ");
+		
+		int m = Integer.parseInt(JOptionPane.showInputDialog("Informe o mês: "));
+		
+		String[] sz = {"Aquário","Peixes","Áires","Touro","Gêmeos","Câncer","Leão","Virgem","Libra","Escorpião","Sagitário","Capricórnio"};
+		
+		String[] mi = {"Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"};
+		
+		String mf = "";
+		String message = "";
+		String s = "";
+
+		int[] v = {19,18,20,19,20,20,22,22,22,22,21,21};
+		
+		if(m == 1){ 
+			s = (Integer.parseInt(d) <= v[0]) ? sz[11] : sz[0];
+			mf = mi[0];
+			if(s == sz[11]) message = (v[11]+1)+" de "+mi[11]+" até "+v[0]+" de "+mi[0];
+			else message = (v[0]+1)+" de "+mi[0]+" até "+(v[0]-1)+" de "+mi[1];
+		}
+		if(m == 2) {
+			s = (Integer.parseInt(d) <= v[1]) ? sz[10] : sz[1];
+			mf = mi[1];
+			if(s == sz[10]) message = (v[10]+1)+" de "+mi[10]+" até "+v[1]+" de "+mi[1];
+			else message = (v[1]+1)+" de "+mi[1]+" até "+(v[1]-1)+" de "+mi[2];
+		}
+		if(m == 3) {
+			s = (Integer.parseInt(d) <= v[2]) ? sz[9] : sz[2];
+			mf = mi[2];
+			if(s == sz[9]) message = (v[9]+1)+" de "+mi[9]+" até "+v[2]+" de "+mi[2];
+			else message = (v[2]+1)+" de "+mi[2]+" até "+(v[2]-1)+" de "+mi[3];
+		}
+		if(m == 4) {
+			s = (Integer.parseInt(d) <= v[3]) ? sz[8] : sz[3];
+			mf = mi[3];
+			if(s == sz[8]) message = (v[8]+1)+" de "+mi[8]+" até "+v[3]+" de "+mi[3];
+			else message = (v[3]+1)+" de "+mi[3]+" até "+(v[3]-1)+" de "+mi[4];
+		}
+		if(m == 5) {
+			s = (Integer.parseInt(d) <= v[4]) ? sz[7] : sz[4];
+			mf = mi[4];
+			if(s == sz[7]) message = (v[7]+1)+" de "+mi[7]+" até "+v[4]+" de "+mi[4];
+			else message = (v[4]+1)+" de "+mi[4]+" até "+(v[4]-1)+" de "+mi[5];
+		}
+		if(m == 6) {
+			s = (Integer.parseInt(d) <= v[5]) ? sz[6] : sz[5];
+			mf = mi[5];
+			if(s == sz[6]) message = (v[6]+1)+" de "+mi[6]+" até "+v[5]+" de "+mi[5];
+			else message = (v[5]+1)+" de "+mi[5]+" até "+(v[5]-1)+" de "+mi[6];
+		}
+		if(m == 7) {
+			s = (Integer.parseInt(d) <= v[6]) ? sz[5] : sz[6];
+			mf = mi[6];
+			if(s == sz[5]) message = (v[5]+1)+" de "+mi[5]+" até "+v[6]+" de "+mi[6];
+			else message = (v[6]+1)+" de "+mi[6]+" até "+(v[6]-1)+" de "+mi[7];
+		}
+		if(m == 8) {
+			s = (Integer.parseInt(d) <= v[7]) ? sz[4] : sz[7];
+			mf = mi[7];
+			if(s == sz[4]) message = (v[4]+1)+" de "+mi[4]+" até "+v[7]+" de "+mi[7];
+			else message = (v[7]+1)+" de "+mi[7]+" até "+(v[7]-1)+" de "+mi[8];
+		}
+		if(m == 9) {
+			s = (Integer.parseInt(d) <= v[8]) ? sz[3] : sz[8];
+			mf = mi[8];
+			if(s == sz[3]) message = (v[3]+1)+" de "+mi[3]+" até "+v[8]+" de "+mi[8];
+			else message = (v[8]+1)+" de "+mi[8]+" até "+(v[8]-1)+" de "+mi[9];
+		}
+		if(m == 10) {
+			s = (Integer.parseInt(d) <= v[9]) ? sz[2] : sz[9];
+			mf = mi[9];
+			if(s == sz[2]) message = (v[2]+1)+" de "+mi[2]+" até "+v[9]+" de "+mi[9];
+			else message = (v[9]+1)+" de "+mi[9]+" até "+(v[9]-1)+" de "+mi[10];
+		}
+		if(m == 11) {
+			s = (Integer.parseInt(d) <= v[10]) ? sz[1] : sz[10];
+			mf = mi[10];
+			if(s == sz[1]) message = (v[1]+1)+" de "+mi[1]+" até "+v[10]+" de "+mi[10];
+			else message = (v[10]+1)+" de "+mi[10]+" até "+(v[10]-1)+" de "+mi[11];
+		}
+		if(m == 12) {
+			s = (Integer.parseInt(d) <= v[11]) ? sz[0] : sz[11];
+			mf = mi[11];
+			if(s == sz[0]) message = (v[0]+1)+" de "+mi[0]+" até "+v[11]+" de "+mi[0];
+			else message = (v[11]+1)+" de "+mi[11]+" até "+(v[11]-1)+" de "+mi[12];
+		}
+		
+		JOptionPane.showMessageDialog(null,"Seu signo vai de:\n"+message+"\nData escolhida: "+d+" de "+mf+"\nSigno: "+s+".");
+	}
+	
+	public static boolean isInt(String s) {
+	    try {
+	    	Integer.parseInt(s); 
+	    }
+	    catch(NumberFormatException e) {
+	    	return true; 
+	    }
+
+	    return false;
+	}
+}
+	

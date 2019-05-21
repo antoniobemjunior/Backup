@@ -1,0 +1,17 @@
+package exemplo07;
+
+import javax.swing.JOptionPane;
+
+public class Principal {
+
+	public static void main(String[] args) {
+
+		//Condicional Composta
+		double nota1 = Double.parseDouble(JOptionPane.showInputDialog("Nota 1"));
+		double nota2 = Double.parseDouble(JOptionPane.showInputDialog("Nota 2"));
+		
+		System.out.println("A média é "+(nota1+nota2)/2);
+
+	}
+
+}

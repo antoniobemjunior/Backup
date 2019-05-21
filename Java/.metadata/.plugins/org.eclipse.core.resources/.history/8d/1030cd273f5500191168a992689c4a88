@@ -1,0 +1,22 @@
+package exemplo04;
+
+import javax.swing.JOptionPane;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		
+		/*//Exibir mensagem
+		JOptionPane.showMessageDialog(null, "Bom dia!");
+		JOptionPane.showMessageDialog(null, "Question","Ícone",JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Information","Ícone",JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Warning","Ícone",JOptionPane.WARNING_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Error","Ícone",JOptionPane.ERROR_MESSAGE);
+		*/
+		
+		//Armazenar valores
+		String nome = JOptionPane.showInputDialog("Informe seu nome","","Olá");
+		
+	}
+
+}

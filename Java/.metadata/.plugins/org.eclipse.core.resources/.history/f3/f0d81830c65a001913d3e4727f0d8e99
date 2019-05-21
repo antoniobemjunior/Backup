@@ -1,0 +1,69 @@
+package ex07;
+
+import javax.swing.JOptionPane;
+
+public class Principal {
+
+	public static void main(String[] args) {
+
+		String nome = "", condicao = "";
+		String[] so = {"Masculino","Femenino"};
+		int sexo = 0, nota1 = 0, nota2 = 0, nota3 = 0, nota4 = 0, masculino = 0, feminino = 0, parabens = 0, otimo = 0, bom = 0, satisfatorio = 0, recuperacao = 0, reprovado = 0, media = 0;
+		
+		while(!nome.equals("sair")) {
+			nome = JOptionPane.showInputDialog("Digite seu nome: ");
+			if(!nome.equals("sair")) {
+				sexo = JOptionPane.showOptionDialog(null,"Escolha um sexo: ","",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,so,null);
+				nota1 = Integer.parseInt(JOptionPane.showInputDialog("Digite a 1ª nota: "));
+				nota2 = Integer.parseInt(JOptionPane.showInputDialog("Digite a 2ª nota: "));
+				nota3 = Integer.parseInt(JOptionPane.showInputDialog("Digite a 3ª nota: "));
+				nota4 = Integer.parseInt(JOptionPane.showInputDialog("Digite a 4ª nota: "));
+				
+				media = (nota1+nota2+nota3+nota4)/4;
+				if(media == 10) {
+					condicao = "parabéns!";
+					parabens++;
+				}
+				if(media >=9 && media <10) {
+					condicao = "ótimo!";
+					otimo++;
+				}
+				if(media >= 8 && media <9) {
+					condicao = "bom!";
+					bom++;
+				}
+				if(media >= 7 && media <8) {
+					condicao = "satisfatório!";
+					satisfatorio++;
+				}
+				if(media >= 5 && media <7) {
+					condicao = "recuperação!";
+					recuperacao++;
+				}
+				if(media < 5) {
+					condicao = "reprovado!";
+					reprovado++;
+				}
+				
+				JOptionPane.showMessageDialog(null, nome+", sua média é "+media+" você esta "+condicao);
+				if(sexo == 0) masculino++;
+				else feminino++;
+			}
+		}
+		JOptionPane.showMessageDialog(null, masculino+" homens: "+((100*masculino)/(parabens+otimo+bom+satisfatorio+recuperacao+reprovado))+"%"+
+													  "\n"+
+									         feminino+" mulheres: "+((100*feminino)/(parabens+otimo+bom+satisfatorio+recuperacao+reprovado))+"%"+
+													  "\n\n"+
+									         		  parabens+" de alunos que tiraram 10: "+((100*parabens)/(parabens+otimo+bom+satisfatorio+recuperacao+reprovado))+"%\n"+
+									         		  otimo+" de alunos que tiraram média entre 9.0 e 9.9: "+((100*otimo)/(parabens+otimo+bom+satisfatorio+recuperacao+reprovado))+"%\n"+
+									         		  bom+" de alunos que tiraram média entre 8.0 e 8.9: "+((100*bom)/(parabens+otimo+bom+satisfatorio+recuperacao+reprovado))+"%\n"+
+									         		  satisfatorio+" de alunos que tiraram média entre 7.0 e 7.9: "+((100*satisfatorio)/(parabens+otimo+bom+satisfatorio+recuperacao+reprovado))+"%\n"+
+									         		  recuperacao+" de alunos que tiraram média entre 5.0 e 6.9: "+((100*recuperacao)/(parabens+otimo+bom+satisfatorio+recuperacao+reprovado))+"%\n"+
+									         		  reprovado+" de alunos que tiraram média abaixo de 5: "+((100*reprovado)/(parabens+otimo+bom+satisfatorio+recuperacao+reprovado))+"%");
+											
+		
+	}
+
+}
+	
+

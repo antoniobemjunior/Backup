@@ -1,0 +1,12 @@
+package formulario;
+
+import javax.swing.JFrame;
+
+public class Quantidade {
+
+	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	setSize(590, 625);
+	setResizable(false);
+	setLocationRelativeTo(null);
+	
+}

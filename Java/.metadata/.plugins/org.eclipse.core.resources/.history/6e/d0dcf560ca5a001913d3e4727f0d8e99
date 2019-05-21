@@ -1,0 +1,27 @@
+package ex07;
+
+import javax.swing.JOptionPane;
+
+public class Principal {
+
+	public static void main(String[] args) {
+
+		String jogo = "Jogo da Forca\n\nDigite uma letra: \n\n";
+		int i = 0;
+		
+		while(i<8) {
+			String letra = JOptionPane.showInputDialog(jogo);
+			jogo += letra+" ";
+			if(letra.equals("e")) i++;// || !letra.equals("E")) i++;
+			if(!letra.equals("s") || !letra.equals("S")) i++;
+			if(!letra.equals("t") || !letra.equals("T")) i++;
+			if(!letra.equals("u") || !letra.equals("U")) i++;
+			if(!letra.equals("d") || !letra.equals("D")) i++;
+			if(!letra.equals("a") || !letra.equals("A")) i++;
+			if(!letra.equals("r") || !letra.equals("R")) i++;
+		}
+	}
+
+}
+	
+

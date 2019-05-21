@@ -1,0 +1,25 @@
+package colaborador;
+
+public class Colaborador extends Pessoa{
+
+	//Atributos
+	private String cargo;
+	private double salario;
+	
+	//Construtor
+	public Colaborador(String nome, String email, String endereco, int idade, String cargo, double salario) {
+		super(nome, email, endereco, idade);
+		this.cargo = cargo;
+		this.salario = salario;
+
+		exibirDadosColaborador();
+	}
+	
+	//Método para exibir dados do colaborador
+	private void exibirDadosColaborador() {
+		System.out.println("Cargo: "+cargo);
+		System.out.println("Salário: "+salario);
+	}
+		
+}
+

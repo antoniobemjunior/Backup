@@ -1,0 +1,27 @@
+package formulario;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import beans.Produto;
+
+@SuppressWarnings("serial")
+public class Quantidade extends JFrame {
+
+	public Quantidade() {
+		setBounds(1100,150,200, 500);
+		setResizable(false);
+		
+		Produto pr = new Produto();
+		JPanel prods = new JPanel();
+		
+		JLabel prod1 = new JLabel();
+		prod1.setText(Integer.toString(pr.getProd1()));
+		prod1.setBounds(10, 10, 100, 20);
+		prods.add(prod1);
+		prods.setBounds(0, 0, 200, 500);
+		
+		
+	}
+}

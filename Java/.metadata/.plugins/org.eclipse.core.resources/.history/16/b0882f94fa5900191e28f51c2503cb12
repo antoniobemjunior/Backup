@@ -1,0 +1,40 @@
+package ex01;
+
+import javax.swing.JOptionPane;
+
+public class Principal {
+
+	public static void main(String[] args) {
+
+		boolean v = false;
+		String[] n = new String[10];
+		int[] i = new int[10];
+		int[] s = new int[10];
+		String[] c = new String[10];
+		int z = 0;		
+		String[] so = {"Masculino","Femenino"};
+		String[] x = {"Continuar","Concluir"};		
+		do {
+			n[z] = JOptionPane.showInputDialog("Digite seu nome: ");
+			i[z] = Integer.parseInt(JOptionPane.showInputDialog("Digite sua idade: "));
+			s[z] = JOptionPane.showOptionDialog(null,"Escolha um sexo: ","",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,so,null);
+			c[z] = JOptionPane.showInputDialog("Digite seu cargo: ");
+			
+			z++;
+			int v0 = JOptionPane.showOptionDialog(null,"Escolha uma opção: ","",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,x,null);
+			if(v0 == 0 || z >= 10) v = false;
+			else v = true;
+		}while(v==false);
+		
+		for(int ind = 0; ind <= z; ind++){
+			System.out.println(n[ind]);
+			System.out.println(i[ind]);
+			System.out.println(s[ind]);
+			System.out.println(c[ind]);
+		}
+		
+	}
+
+}
+	
+

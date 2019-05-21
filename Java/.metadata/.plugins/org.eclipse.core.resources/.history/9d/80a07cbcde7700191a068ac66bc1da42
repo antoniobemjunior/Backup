@@ -1,0 +1,9 @@
+package dados;
+
+import java.util.ArrayList;
+
+public class Dados {
+
+	public static ArrayList<..> .. = new ArrayList<..>();
+	
+}

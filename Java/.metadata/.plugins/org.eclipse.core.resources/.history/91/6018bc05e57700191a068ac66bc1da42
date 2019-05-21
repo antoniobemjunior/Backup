@@ -1,0 +1,287 @@
+package formulario;
+
+import java.awt.Color;
+import java.awt.event.*;
+
+import javax.swing.*;
+import javax.swing.border.*;
+
+import acao.Acao;
+import dados.Dados;
+
+@SuppressWarnings("serial")
+public class Formulario extends JFrame {
+
+	private JPanel contentPane = new JPanel();
+	private JPanel panel1 = new JPanel();
+	JLabel produto1 = new JLabel("Camisa 1");
+	JLabel produto2 = new JLabel("Camisa 2");
+	JLabel produto3 = new JLabel("Camisa 3");
+	JLabel produto4 = new JLabel("Camisa 4");
+	JLabel produto5 = new JLabel("Camisa 5");
+	JLabel produto6 = new JLabel("Camisa 6");
+	JLabel produto7 = new JLabel("Camisa 7");
+	JLabel produto8 = new JLabel("Camisa 8");
+	JLabel quantidade = new JLabel("Quantidade:");
+	JLabel quantidadeValor = new JLabel("");
+	JLabel prod1Mais = new JLabel("+");
+	JLabel prod1Menos = new JLabel("-");
+	JLabel prod2Mais = new JLabel("+");
+	JLabel prod2Menos = new JLabel("-");
+	JLabel prod3Mais = new JLabel("+");
+	JLabel prod3Menos = new JLabel("-");
+	JLabel prod4Mais = new JLabel("+");
+	JLabel prod4Menos = new JLabel("-");
+	JLabel prod5Mais = new JLabel("+");
+	JLabel prod5Menos = new JLabel("-");
+	JLabel prod6Mais = new JLabel("+");
+	JLabel prod6Menos = new JLabel("-");
+	JLabel prod7Mais = new JLabel("+");
+	JLabel prod7Menos = new JLabel("-");
+	JLabel prod8Mais = new JLabel("+");
+	JLabel prod8Menos = new JLabel("-");
+	JButton btnQuantidade = new JButton("Mostrar quantidade");
+	
+	private Acao a = new Acao();
+	
+	public Formulario() {
+	
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(590, 625);
+		setResizable(false);
+		setLocationRelativeTo(null);
+		setContentPane(contentPane);
+		
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(null);
+		
+		panel1.setBorder(new LineBorder(Color.LIGHT_GRAY));
+		panel1.setBounds(10, 10, 200, 300);
+		panel1.setLayout(null);
+		
+		produto1.setBounds(10, 10, 100, 20);
+		prod1Mais.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				a.cadastrar(1);
+				quantidadeValor.setText(Integer.toString(Dados.produtos));
+			}
+		});
+		prod1Menos.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				a.cadastrar(-1);
+				quantidadeValor.setText(Integer.toString(Dados.produtos));
+				if(Integer.parseInt(quantidadeValor.getText()) < 0) {
+					quantidadeValor.setText("0");
+					Dados.produtos = 0;
+				}
+			}
+		});
+		prod1Mais.setHorizontalAlignment(SwingConstants.CENTER);
+		prod1Mais.setBounds(20, 30, 20, 20);
+		prod1Menos.setHorizontalAlignment(SwingConstants.CENTER);
+		prod1Menos.setBounds(40, 30, 20, 20);
+		
+		produto2.setBounds(10, 50, 100, 20);
+		prod2Mais.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				a.cadastrar(1);
+				quantidadeValor.setText(Integer.toString(Dados.produtos));
+			}
+		});
+		prod2Menos.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				a.cadastrar(-1);
+				quantidadeValor.setText(Integer.toString(Dados.produtos));
+				if(Integer.parseInt(quantidadeValor.getText()) < 0) {
+					quantidadeValor.setText("0");
+					Dados.produtos = 0;
+				}
+			}
+		});
+		prod2Mais.setHorizontalAlignment(SwingConstants.CENTER);
+		prod2Mais.setBounds(20, 70, 20, 20);
+		prod2Menos.setHorizontalAlignment(SwingConstants.CENTER);
+		prod2Menos.setBounds(40, 70, 20, 20);
+		
+		produto3.setBounds(10, 90, 100, 20);
+		prod3Mais.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				a.cadastrar(1);
+				quantidadeValor.setText(Integer.toString(Dados.produtos));
+			}
+		});
+		prod3Menos.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				a.cadastrar(-1);
+				quantidadeValor.setText(Integer.toString(Dados.produtos));
+				if(Integer.parseInt(quantidadeValor.getText()) < 0) {
+					quantidadeValor.setText("0");
+					Dados.produtos = 0;
+				}
+			}
+		});
+		prod3Mais.setHorizontalAlignment(SwingConstants.CENTER);
+		prod3Mais.setBounds(20, 110, 20, 20);
+		prod3Menos.setHorizontalAlignment(SwingConstants.CENTER);
+		prod3Menos.setBounds(40, 110, 20, 20);
+		
+		produto4.setBounds(10, 130, 100, 20);
+		prod4Mais.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				a.cadastrar(1);
+				quantidadeValor.setText(Integer.toString(Dados.produtos));
+			}
+		});
+		prod4Menos.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				a.cadastrar(-1);
+				quantidadeValor.setText(Integer.toString(Dados.produtos));
+				if(Integer.parseInt(quantidadeValor.getText()) < 0) {
+					quantidadeValor.setText("0");
+					Dados.produtos = 0;
+				}
+			}
+		});
+		prod4Mais.setHorizontalAlignment(SwingConstants.CENTER);
+		prod4Mais.setBounds(20, 150, 20, 20);
+		prod4Menos.setHorizontalAlignment(SwingConstants.CENTER);
+		prod4Menos.setBounds(40, 150, 20, 20);
+		
+		produto5.setBounds(100, 10, 100, 20);
+		prod5Mais.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				a.cadastrar(1);
+				quantidadeValor.setText(Integer.toString(Dados.produtos));
+			}
+		});
+		prod5Menos.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				a.cadastrar(-1);
+				quantidadeValor.setText(Integer.toString(Dados.produtos));
+				if(Integer.parseInt(quantidadeValor.getText()) < 0) {
+					quantidadeValor.setText("0");
+					Dados.produtos = 0;
+				}
+			}
+		});
+		prod5Mais.setHorizontalAlignment(SwingConstants.CENTER);
+		prod5Mais.setBounds(110, 30, 20, 20);
+		prod5Menos.setHorizontalAlignment(SwingConstants.CENTER);
+		prod5Menos.setBounds(130, 30, 20, 20);
+		
+		produto6.setBounds(100, 50, 100, 20);
+		prod6Mais.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				a.cadastrar(1);
+				quantidadeValor.setText(Integer.toString(Dados.produtos));
+			}
+		});
+		prod6Menos.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				a.cadastrar(-1);
+				quantidadeValor.setText(Integer.toString(Dados.produtos));
+				if(Integer.parseInt(quantidadeValor.getText()) < 0) {
+					quantidadeValor.setText("0");
+					Dados.produtos = 0;
+				}
+			}
+		});
+		prod6Mais.setHorizontalAlignment(SwingConstants.CENTER);
+		prod6Mais.setBounds(110, 70, 20, 20);
+		prod6Menos.setHorizontalAlignment(SwingConstants.CENTER);
+		prod6Menos.setBounds(130, 70, 20, 20);
+		
+		produto7.setBounds(100, 90, 100, 20);
+		prod7Mais.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				a.cadastrar(1);
+				quantidadeValor.setText(Integer.toString(Dados.produtos));
+			}
+		});
+		prod7Menos.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				a.cadastrar(-1);
+				quantidadeValor.setText(Integer.toString(Dados.produtos));
+				if(Integer.parseInt(quantidadeValor.getText()) < 0) {
+					quantidadeValor.setText("0");
+					Dados.produtos = 0;
+				}
+			}
+		});
+		prod7Mais.setHorizontalAlignment(SwingConstants.CENTER);
+		prod7Mais.setBounds(110, 110, 20, 20);
+		prod7Menos.setHorizontalAlignment(SwingConstants.CENTER);
+		prod7Menos.setBounds(130, 110, 20, 20);
+		
+		produto8.setBounds(100, 130, 100, 20);
+		prod8Mais.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				a.cadastrar(1);
+				quantidadeValor.setText(Integer.toString(Dados.produtos));
+			}
+		});
+		prod8Menos.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				a.cadastrar(-1);
+				quantidadeValor.setText(Integer.toString(Dados.produtos));
+				if(Integer.parseInt(quantidadeValor.getText()) < 0) {
+					quantidadeValor.setText("0");
+					Dados.produtos = 0;
+				}
+			}
+		});
+		prod8Mais.setHorizontalAlignment(SwingConstants.CENTER);
+		prod8Mais.setBounds(110, 150, 20, 20);
+		prod8Menos.setHorizontalAlignment(SwingConstants.CENTER);
+		prod8Menos.setBounds(130, 150, 20, 20);
+		
+		quantidade.setBounds(10, 180, 100, 20);
+		quantidadeValor.setBounds(110, 180, 100, 20);
+		btnQuantidade.setBounds(10, 230, 100, 20);
+		panel1.add(produto1);
+		panel1.add(prod1Mais);
+		panel1.add(prod1Menos);
+		panel1.add(produto2);
+		panel1.add(prod2Mais);
+		panel1.add(prod2Menos);
+		panel1.add(produto3);
+		panel1.add(prod3Mais);
+		panel1.add(prod3Menos);
+		panel1.add(produto4);
+		panel1.add(prod4Mais);
+		panel1.add(prod4Menos);
+		panel1.add(produto5);
+		panel1.add(prod5Mais);
+		panel1.add(prod5Menos);
+		panel1.add(produto6);
+		panel1.add(prod6Mais);
+		panel1.add(prod6Menos);
+		panel1.add(produto7);
+		panel1.add(prod7Mais);
+		panel1.add(prod7Menos);
+		panel1.add(produto8);
+		panel1.add(prod8Mais);
+		panel1.add(prod8Menos);
+		panel1.add(quantidade);
+		panel1.add(quantidadeValor);
+		contentPane.add(panel1);
+		
+	}
+
+}

@@ -1,0 +1,16 @@
+package colaborador;
+
+public class Colaborador {
+
+	//Atributos
+	private String cargo;
+	private double salario;
+	
+	//Método para exibir dados do colaborador
+	private void exibirDadosColaborador() {
+		System.out.println("Cargo: "+cargo);
+		System.out.println("Salário: "+salario);
+	}
+		
+}
+

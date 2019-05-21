@@ -1,0 +1,151 @@
+package formulario;
+
+import java.awt.Color;
+import java.awt.event.*;
+
+import javax.swing.*;
+import javax.swing.border.*;
+
+import acao.Acao;
+import beans.*;
+
+@SuppressWarnings("serial")
+public class Formulario extends JFrame {
+
+	private JPanel contentPane = new JPanel();
+	private JPanel panel1 = new JPanel();
+	JLabel produto1 = new JLabel("Camisa 1");
+	JLabel produto2 = new JLabel("Camisa 2");
+	JLabel produto3 = new JLabel("Camisa 3");
+	JLabel produto4 = new JLabel("Camisa 4");
+	JLabel produto5 = new JLabel("Camisa 5");
+	JLabel produto6 = new JLabel("Camisa 6");
+	JLabel produto7 = new JLabel("Camisa 7");
+	JLabel produto8 = new JLabel("Camisa 8");
+	JLabel quantidade = new JLabel("Quantidade:");
+	JLabel prod1Mais = new JLabel("+");
+	JLabel prod1Menos = new JLabel("-");
+	JLabel prod2Mais = new JLabel("+");
+	JLabel prod2Menos = new JLabel("-");
+	JLabel prod3Mais = new JLabel("+");
+	JLabel prod3Menos = new JLabel("-");
+	JLabel prod4Mais = new JLabel("+");
+	JLabel prod4Menos = new JLabel("-");
+	JLabel prod5Mais = new JLabel("+");
+	JLabel prod5Menos = new JLabel("-");
+	JLabel prod6Mais = new JLabel("+");
+	JLabel prod6Menos = new JLabel("-");
+	JLabel prod7Mais = new JLabel("+");
+	JLabel prod7Menos = new JLabel("-");
+	JLabel prod8Mais = new JLabel("+");
+	JLabel prod8Menos = new JLabel("-");
+
+	private JTextField txtnome = new JTextField("");
+	private JTextField txtidade = new JTextField("");
+	private JTextField txtaltura = new JTextField("");
+	private JTextField txtpeso = new JTextField("");
+	private JButton btnCadastrar = new JButton("Cadastrar");
+	private Acao a = new Acao();
+	private JScrollPane scrollPane = new JScrollPane();
+	private JTable table = new JTable();
+	
+	private void configura(JLabel l, JTextField t, int y) {
+		l.setBounds(10, y, 100, 20);
+		t.setBounds(110, y, 200, 20);
+		panel1.add(l);
+		panel1.add(t);
+	}
+	
+	public Formulario() {
+	
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(590, 625);
+		setResizable(false);
+		setLocationRelativeTo(null);
+		setContentPane(contentPane);
+		
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(null);
+	
+		table.setModel(a.selecionar());
+		
+		panel1.setBorder(new LineBorder(Color.LIGHT_GRAY));
+		panel1.setBounds(10, 10, 200, 300);
+		panel1.setLayout(null);
+		
+		produto1.setBounds(10, 10, 100, 20);
+		prod1Mais.setBounds(20, 30, 20, 20);
+		prod1Menos.setBounds(40, 30, 20, 20);
+		
+		produto2.setBounds(10, 50, 100, 20);
+		prod2Mais.setBounds(20, 70, 20, 20);
+		prod2Menos.setBounds(40, 70, 20, 20);
+		
+		produto3.setBounds(10, 90, 100, 20);
+		prod3Mais.setBounds(20, 110, 20, 20);
+		prod3Menos.setBounds(40, 110, 20, 20);
+		
+		produto4.setBounds(10, 130, 100, 20);
+		prod4Mais.setBounds(20, 150, 20, 20);
+		prod4Menos.setBounds(40, 150, 20, 20);
+		
+		produto5.setBounds(100, 10, 100, 20);
+		prod5Mais.setBounds(110, 30, 20, 20);
+		prod5Menos.setBounds(130, 30, 20, 20);
+		
+		produto6.setBounds(100, 50, 100, 20);
+		prod6Mais.setBounds(110, 70, 20, 20);
+		prod6Menos.setBounds(130, 70, 20, 20);
+		
+		produto7.setBounds(100, 90, 100, 20);
+		prod7Mais.setBounds(110, 110, 20, 20);
+		prod7Menos.setBounds(130, 110, 20, 20);
+		
+		produto8.setBounds(100, 130, 100, 20);
+		prod8Mais.setBounds(110, 150, 20, 20);
+		prod8Menos.setBounds(130, 150, 20, 20);
+		
+		quantidade.setBounds(10, 110, 100, 20);
+		panel1.add(produto1);
+		panel1.add(prod1Mais);
+		panel1.add(prod1Menos);
+		panel1.add(produto2);
+		panel1.add(prod2Mais);
+		panel1.add(prod2Menos);
+		panel1.add(produto3);
+		panel1.add(prod3Mais);
+		panel1.add(prod3Menos);
+		panel1.add(produto4);
+		panel1.add(prod4Mais);
+		panel1.add(prod4Menos);
+		panel1.add(produto5);
+		panel1.add(prod5Mais);
+		panel1.add(prod5Menos);
+		panel1.add(produto6);
+		panel1.add(prod6Mais);
+		panel1.add(prod6Menos);
+		panel1.add(produto7);
+		panel1.add(prod7Mais);
+		panel1.add(prod7Menos);
+		panel1.add(produto8);
+		panel1.add(prod8Mais);
+		panel1.add(prod8Menos);
+		panel1.add(quantidade);
+		contentPane.add(panel1);
+		
+	}
+
+	public void bntCadastrar(ActionEvent e) {
+		a.cadastrar(pessoa());
+		table.setModel(a.selecionar());
+	}
+	
+	private Pessoa pessoa() {
+		Pessoa p = new Pessoa();
+		p.setNome(txtnome.getText());
+		p.setIdade(Integer.parseInt(txtidade.getText()));
+		p.setAltura(Double.parseDouble(txtaltura.getText().replace(',', '.')));
+		p.setPeso(Double.parseDouble(txtpeso.getText().replace(',', '.')));
+		return p;
+	}
+}

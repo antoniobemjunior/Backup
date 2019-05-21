@@ -1,0 +1,17 @@
+package ex07;
+
+import javax.swing.JOptionPane;
+
+public class Principal {
+
+	public static void main(String[] args) {
+
+		String jogo = "Jogo da Forca\n\nDigite uma letra: ";
+		
+		JOptionPane.showInputDialog(jogo);
+		
+	}
+
+}
+	
+

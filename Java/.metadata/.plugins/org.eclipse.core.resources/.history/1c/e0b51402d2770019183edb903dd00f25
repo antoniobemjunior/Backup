@@ -1,0 +1,64 @@
+package formulario;
+
+import java.awt.Color;
+
+import javax.swing.*;
+import javax.swing.border.*;
+import beans.*;
+
+@SuppressWarnings("serial")
+public class Formulario extends JFrame {
+
+	private JPanel contentPane = new JPanel();
+	private JPanel panel = new JPanel();
+	private JLabel lblnome = new JLabel("Nome:");
+	private JLabel lblidade = new JLabel("Idade:");
+	private JLabel lblaltura = new JLabel("Altura:");
+	private JLabel lblpeso = new JLabel("Peso:");
+	private JLabel lblimc = new JLabel("IMC:");
+	private JTextField txtnome = new JTextField("");
+	private JTextField txtidade = new JTextField("");
+	private JTextField txtaltura = new JTextField("");
+	private JTextField txtpeso = new JTextField("");
+	private JTextField txtimc = new JTextField("");
+	private JButton btnCadastrar = new JButton("Cadastrar");
+	
+	private void configura(JLabel l, JTextField t, int y) {
+		l.setBounds(10, y, 100, 20);
+		t.setBounds(110, y, 200, 20);
+		panel.add(l);
+		panel.add(t);
+	}
+	
+	public Formulario() {
+	
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(590, 625);
+		setResizable(false);
+		setLocationRelativeTo(null);
+		setContentPane(contentPane);
+		
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(null);
+
+		panel.setBorder(new LineBorder(Color.LIGHT_GRAY));
+		panel.setBounds(10, 10, 557, 214);
+		panel.setLayout(null);
+		contentPane.add(panel);
+		
+		configura(lblnome, txtnome, 10);
+		configura(lblidade, txtidade, 30);
+		configura(lblaltura, txtaltura, 50);
+		configura(lblpeso, txtpeso, 70);
+		configura(lblimc, txtimc, 90);
+		
+		Pessoa p = new Pessoa();
+		p.setNome(txtnome.getText());
+		p.setIdade(Integer.parseInt(txtidade.getText()));
+		p.setAltura(Double.parseDouble(txtaltura.getText()));
+		p.setPeso(Double.parseDouble(txtpeso.getText()));
+		
+		
+	}
+	
+}

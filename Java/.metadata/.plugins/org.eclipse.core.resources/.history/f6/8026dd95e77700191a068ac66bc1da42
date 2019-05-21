@@ -1,0 +1,19 @@
+package dados;
+
+
+public class Dados {
+
+	public static int produtos;
+	
+	public static int prod1;
+	public static int prod2;
+	public static int prod3;
+	public static int prod4;
+	public static int prod5;
+	public static int prod6;
+	public static int prod7;
+	public static int prod8;
+
+	
+	
+}

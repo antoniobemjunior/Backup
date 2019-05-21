@@ -1,0 +1,40 @@
+package acao;
+
+import javax.swing.table.DefaultTableModel;
+import dados.*;
+
+@SuppressWarnings("unused")
+public class Acao {
+
+	public void cadastrar() {
+		if(usuarioDuplicados() == false) {
+			System.out.println();
+		}
+	}
+	
+	public void alterar() {
+		
+	}
+
+	public void excluir() {
+		
+	}
+	
+	public DefaultTableModel selecionar() {
+		DefaultTableModel t = new DefaultTableModel();
+		
+		return t;
+	}
+	
+	private boolean usuarioDuplicados() {
+		boolean b = false;
+		
+		return b;
+	}
+	
+	public int[] estatisticas() {
+		int[] e = new int[10];
+		
+		return e;
+	}
+}

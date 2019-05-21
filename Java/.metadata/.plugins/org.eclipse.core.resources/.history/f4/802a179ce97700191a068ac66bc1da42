@@ -1,0 +1,31 @@
+package acao;
+
+import java.text.DecimalFormat;
+
+import javax.swing.table.DefaultTableModel;
+
+import beans.Produto;
+import dados.Dados;
+
+@SuppressWarnings("unused")
+public class Acao {
+
+	Produto pr = new Produto();
+	
+	public void cadastrar(int p) {
+		Dados.produtos += p;
+	}
+	
+	public void produto(int n, int p) {
+		if(n ==1 ) pr.setProd1(p);
+		if(n ==2 ) pr.setProd2(p);
+		if(n ==3 ) pr.setProd3(p);
+		if(n ==4 ) pr.setProd4(p);
+		if(n ==5 ) pr.setProd5(p);
+		if(n ==6 ) pr.setProd6(p);
+		if(n ==7 ) pr.setProd7(p);
+		if(n ==8 ) pr.setProd8(p);
+	}
+
+	
+}

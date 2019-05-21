@@ -1,0 +1,39 @@
+package ex02;
+
+import javax.swing.JOptionPane;
+
+public class Principal {
+
+	public static void main(String[] args) {
+
+		String[] nome = new String[10];
+		int[] altura = new int[10];
+		int[] idade = new int[10];
+		int[] peso = new int[10];
+		int total = 0;
+		boolean valida = false;
+		String[] x = {"Continuar","Concluir"};
+		
+		do {
+			nome[total] = JOptionPane.showInputDialog("Digite seu nome: ");
+			altura[total] = Integer.parseInt(JOptionPane.showInputDialog("Digite sua altura: "));
+			idade[total] = Integer.parseInt(JOptionPane.showInputDialog("Digite sua idade: "));
+			peso[total] = Integer.parseInt(JOptionPane.showInputDialog("Digite seu peso: "));
+			
+			total++;
+			int v0 = JOptionPane.showOptionDialog(null,"Escolha uma opção: ","",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,x,null);
+			if(v0 == 0 || total >= 10) valida = false;
+			else valida = true;
+		}while(valida == false);
+		
+		String[] pessoa = new String[10];
+		for(int i = 0; i < total; i++) {
+			pessoa[i] = nome[i]+" "+altura[i]+" "+idade[i]+" "+peso[i];
+		}
+		
+		System.out.println(pessoa[0]);
+	}
+
+}
+	
+

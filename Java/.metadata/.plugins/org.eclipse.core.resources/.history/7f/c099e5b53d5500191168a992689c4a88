@@ -1,0 +1,20 @@
+package exemplo04;
+
+import javax.swing.JOptionPane;
+
+public class Principal {
+
+	public static void main(String[] args) {
+
+		//Variáveis	
+		int numero = 0;
+		
+		//Exibir mensagem
+		JOptionPane.showMessageDialog(null, "Bom dia!");
+		
+		//
+		JOptionPane.showInputDialog("Digite um valor", numero);
+		JOptionPane.showMessageDialog(null, numero);
+	}
+
+}

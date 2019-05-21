@@ -1,0 +1,23 @@
+package exemplo05;
+
+import javax.swing.JOptionPane;
+
+public class Principal {
+
+	public static void main(String[] args) {
+
+		//Variável de Validação
+		boolean v = false;
+		
+		do {
+			try {
+				int i = Integer.parseInt(JOptionPane.showInputDialog("Informe uma idade: "));
+				v = true;
+			}catch(Exception e) {
+				JOptionPane.showMessageDialog(null, "Favor informar um número inteiro");
+			}
+			
+		}while(v == false);
+	}
+
+}

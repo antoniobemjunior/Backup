@@ -1,0 +1,9 @@
+package dados;
+
+
+public class Dados {
+
+	//ArrayList
+	public static int produtos;
+	
+}

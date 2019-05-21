@@ -1,0 +1,90 @@
+package ex03;
+
+import javax.swing.JOptionPane;
+
+public class Principal {
+
+	public static void main(String[] args) {
+
+		Object[] x = {"1","2","3","4","5","6","7"};
+		Object[] btn = {"1 Centavo"," 5 Centavos","10 Centavos","25 Centavos","50 Centavos","1 Real","2 Reais","5 Reais","10 Reais","20 Reais","50 Reais","100 Reais"};
+		float total = 0;
+		int j = 0;
+		float k = 0;
+		String i = "";
+		int ham = 0, san = 0, pra = 0, piz = 0, las = 0, pao = 0, bol = 0;
+		int n = 0;
+		while(n != -1) {
+			n = JOptionPane.showOptionDialog(null,"Opções:"+
+													  	"\n\n"+
+												  	  	"1 - Hambúrguer + Suco de Laranja R$ 05,00\n"+
+												  	  	"2 - Sanduíche natural + Suco de Uva R$ 04,50\n"+
+												  		"3 - Prato do dia R$ 08,00\n"+
+												  		"4 - Pizza R$ 12,00\n"+
+												  		"5 - Lasanha R$ 16,50\n"+
+												  		"6 - Pão de queijo R$ 01,00\n"+
+												  		"7 - Bolo R$ 02,50\n"
+												  	  ,"",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,x,null);
+			
+			
+			
+			if(n == 0) { 
+				k = (float)5.0;
+				i = "1 - Hambúrguer + Suco de Laranja";
+				ham++;
+			}
+			if(n == 1) {
+				k = (float)4.5;
+				i = "2 - Sanduíche natural + Suco de Uva";
+				san++;
+			}
+			if(n == 2) {
+				k = (float)8.0;
+				i = "3 - Prato do dia";
+				pra++;
+			}
+			if(n == 3) {
+				k = (float)12.0;
+				i = "4 - Pizza";
+				piz++;
+			}
+			if(n == 4) {
+				k = (float)16.5;
+				i = "5 - Lasanha";
+				las++;
+			}
+			if(n == 5) {
+				k = (float)1.0;
+				i = "6 - Pão de queijo";
+				pao++;
+			}
+			if(n == 6) {
+				k = (float)2.5;
+				i = "7 - Bolo";
+				bol++;
+			}
+		}
+		
+		while(total < k) {
+			j = JOptionPane.showOptionDialog(null,"Você precisa pagar R$ "+(k-total),"Total: "+(total),JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,btn,null);
+			if(j == 0)total += 0.01;
+			if(j == 1)total += 0.05;
+			if(j == 2)total += 0.10;
+			if(j == 3)total += 0.25;
+			if(j == 4)total += 0.50;
+			if(j == 5)total += 1.00;
+			if(j == 6)total += 2.00;
+			if(j == 7)total += 5.00;
+			if(j == 8)total += 10.00;
+			if(j == 9)total += 20.00;
+			if(j == 10)total += 50.00;
+			if(j == 11)total += 100.00;
+		}
+
+		JOptionPane.showMessageDialog(null, "Opção: "+i+"\nCusto: R$ "+k+"\nValor pago: R$ "+total+"\nTroco: R$ "+(total-k));
+	
+	}
+
+}
+	
+

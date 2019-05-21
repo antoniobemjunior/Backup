@@ -1,0 +1,62 @@
+package ex01;
+
+import javax.swing.JOptionPane;
+
+public class Principal {
+
+	public static void main(String[] args) {
+
+		boolean valida = false;
+		String[] nome = new String[10];
+		int[] idade = new int[10];
+		int[] sexo = new int[10];
+		int[] cargo = new int[10];
+		int total = 0;		
+		String[] so = {"Masculino","Femenino"};
+		String[] x = {"Continuar","Concluir"};
+		String[] ca = {"Gerente,","Atendente","Açougueiro","Secretária","Almoxarife","Padeiro","Estagiário"};
+		do {
+			nome[total] = JOptionPane.showInputDialog("Digite seu nome: ");
+			idade[total] = Integer.parseInt(JOptionPane.showInputDialog("Digite sua idade: "));
+			sexo[total] = JOptionPane.showOptionDialog(null,"Escolha um sexo: ","",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,so,null);
+			cargo[total] = JOptionPane.showOptionDialog(null,"Escolha seu cargo: ","",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,ca,null);
+			
+			total++;
+			int v0 = JOptionPane.showOptionDialog(null,"Escolha uma opção: ","",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,x,null);
+			if(v0 == 0 || total >= 10) valida = false;
+			else valida = true;
+		}while(valida == false);
+		
+		int m = 0;
+		int f = 0;
+		int ge = 0;
+		int at = 0;
+		int aç = 0;
+		int se = 0;
+		int al = 0;
+		int pa = 0;
+		int es = 0;
+		int id = 0;
+		
+		for(int ind = 0; ind <= (total-1); ind++){
+			if(sexo[ind] == 0) m++;
+			if(sexo[ind] == 1) f++;
+			if(cargo[ind] == 0) ge++;
+			if(cargo[ind] == 1) at++;
+			if(cargo[ind] == 2) aç++;
+			if(cargo[ind] == 3) se++;
+			if(cargo[ind] == 4) al++;
+			if(cargo[ind] == 5) pa++;
+			if(cargo[ind] == 6) es++;
+			if(idade[ind] => 18) id++;
+		}
+		
+		JOptionPane.showMessageDialog(null, "a)\nMasculino: "+m+"\nFeminino: "+f);
+		JOptionPane.showMessageDialog(null, "b)\nGerente: "+ge+"\nAtendente: "+at+"\nAçougueiro: "+aç+"\nSecretária: "+se+"\nAlmoxarife: "+al+"\nPadeiro: "+pa+"\nEstagiário: "+es);
+		JOptionPane.showMessageDialog(null, "b)\nGerente: "+ge+"\nAtendente: "+at+"\nAçougueiro: "+aç+"\nSecretária: "+se+"\nAlmoxarife: "+al+"\nPadeiro: "+pa+"\nEstagiário: "+es);
+		
+	}
+
+}
+	
+

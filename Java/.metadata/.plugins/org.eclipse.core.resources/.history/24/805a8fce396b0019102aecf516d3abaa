@@ -1,0 +1,64 @@
+package formulario;
+
+import java.awt.Color;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
+
+
+public class Formulario {
+
+	//Construtor
+	public Formulario() {
+		JFrame f = new JFrame("Sistema Simples");
+		f.setSize(1000,800);
+		f.setLayout(null);
+		f.setLocationRelativeTo(null);
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		f.getContentPane().add(listarDados());
+		f.setVisible(true);
+	}
+	
+	//Listar dados
+	private JPanel listarDados() {
+		
+		JPanel p = new JPanel();
+		p.setBounds(5, 5, 972, 750);
+		p.setBorder(new LineBorder(new Color(255,0,0),1));
+		p.setLayout(null);
+		
+		JScrollPane barra = new JScrollPane(tabela());
+		barra.setBounds(5,5,962,745);
+		
+		p.add(barra);
+		
+		return p;
+		
+	}
+	
+	//Tabela
+	private JTable tabela() {
+		
+		//Dados
+		DefaultTableModel dados = new DefaultTableModel();
+		dados.addColumn("Nome");
+		dados.addColumn("Idade");
+		dados.addColumn("Cidade");
+		
+		dados.addRow(new Object[] {"Ralf",46,"Blumenau"});
+		dados.addRow(new Object[] {"Antonio",29,"Blumenau"});
+		dados.addRow(new Object[] {"Vinicius",18,"Blumenau"});
+		
+		//Tabela
+		JTable t = new JTable(dados);
+		
+		//Retorno
+		return t;
+	}
+	
+}

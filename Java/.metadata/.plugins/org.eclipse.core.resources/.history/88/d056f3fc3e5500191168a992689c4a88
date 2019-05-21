@@ -1,0 +1,17 @@
+package exemplo04;
+
+import javax.swing.JOptionPane;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		
+		//Exibir mensagem
+		JOptionPane.showMessageDialog(null, "Bom dia!");
+		JOptionPane.showMessageDialog(null, "Ícone","Question",JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Ícone","Information",JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Ícone","Warning",JOptionPane.WARNING_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Ícone","Error",JOptionPane.ERROR_MESSAGE);
+	}
+
+}

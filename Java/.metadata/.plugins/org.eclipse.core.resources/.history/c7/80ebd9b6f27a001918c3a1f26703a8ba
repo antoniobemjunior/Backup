@@ -1,0 +1,11 @@
+package cargos;
+
+public class Analista extends Cargo{
+
+	//Imposto de Renda
+	public void ir() {
+		if(nivel == 1) System.out.println("Imposto de Renda: "+salario*0.15);
+		if(nivel > 1) System.out.println("Imposto de Renda: "+salario*0.20);
+	}
+	
+}

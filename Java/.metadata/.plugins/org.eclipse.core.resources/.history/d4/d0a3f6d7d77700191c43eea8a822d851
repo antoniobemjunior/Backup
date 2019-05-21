@@ -1,0 +1,58 @@
+package acao;
+
+import java.text.DecimalFormat;
+
+import javax.swing.table.DefaultTableModel;
+import dados.*;
+import beans.*;
+
+@SuppressWarnings("unused")
+public class Acao {
+
+	DecimalFormat df = new DecimalFormat();
+	
+	public void cadastrar(Pessoa p) {
+		if(usuarioDuplicados() == false) {
+			Dados.dados.add(p);
+		}
+	}
+	
+	public void alterar() {
+		
+	}
+
+	public void excluir() {
+		
+	}
+	
+	public DefaultTableModel selecionar() {
+		DefaultTableModel t = new DefaultTableModel();
+		t.addColumn("Nome");
+		t.addColumn("Idade");
+		t.addColumn("Altura");
+		t.addColumn("Peso");
+		t.addColumn("IMC");
+		for(int indice=0; indice<Dados.dados.size(); indice++) {
+			t.addRow(new Object [] {
+				Dados.dados.get(indice).getNome(),
+				Dados.dados.get(indice).getIdade(),
+				Dados.dados.get(indice).getAltura(),
+				Dados.dados.get(indice).getPeso(),
+				Dados.dados.get(indice).getImc(),
+			});
+		}
+		return t;
+	}
+	
+	private boolean usuarioDuplicados() {
+		boolean b = false;
+		
+		return b;
+	}
+	
+	public int[] estatisticas() {
+		int[] e = new int[10];
+		
+		return e;
+	}
+}

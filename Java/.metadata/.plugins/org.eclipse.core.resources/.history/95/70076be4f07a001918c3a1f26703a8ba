@@ -1,0 +1,10 @@
+package cargos;
+
+public class Estagiario {
+
+	//Imposto de Renda
+	public void ir() {
+		
+	}
+	
+}

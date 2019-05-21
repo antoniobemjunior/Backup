@@ -1,0 +1,16 @@
+package exemplo04;
+
+import javax.swing.JOptionPane;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		
+		//Exibir mensagem
+		JOptionPane.showMessageDialog(null, "Bom dia!");
+		JOptionPane.showMessageDialog(null, "Tudo ok?","Olá",JOptionPane.QUESTION_MESSAGE);
+		
+		
+	}
+
+}

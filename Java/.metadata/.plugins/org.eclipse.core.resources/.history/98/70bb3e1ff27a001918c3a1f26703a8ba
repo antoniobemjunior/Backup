@@ -1,0 +1,10 @@
+package cargos;
+
+public class Analista extends Cargo{
+
+	//Imposto de Renda
+	public void ir() {
+		
+	}
+	
+}
